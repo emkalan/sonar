@@ -1,0 +1,319 @@
+[gd_scene load_steps=27 format=3 uid="uid://cgr7px51lvoro"]
+
+[ext_resource type="ArrayMesh" uid="uid://dm6rb6pr4h6bl" path="res://boatmodel.tres" id="2_5t8nk"]
+[ext_resource type="Script" uid="uid://h5ia1ujkmike" path="res://piano.gd" id="2_6iypd"]
+[ext_resource type="TextMesh" uid="uid://dt36y7hjs3l32" path="res://null.tres" id="2_a0tk4"]
+[ext_resource type="Script" uid="uid://c3l2cccn6l7ig" path="res://boatmovement.gd" id="2_cdqbm"]
+[ext_resource type="AudioStream" uid="uid://lmd15qnksybb" path="res://C.ogg" id="3_tereu"]
+[ext_resource type="AudioStream" uid="uid://cmvarfte5nvsr" path="res://D.ogg" id="4_cdqbm"]
+[ext_resource type="AudioStream" uid="uid://c30lteg5q4v8j" path="res://E.ogg" id="5_imku0"]
+[ext_resource type="AudioStream" uid="uid://bx0q0481cimg7" path="res://F.ogg" id="6_wlxy5"]
+[ext_resource type="AudioStream" uid="uid://cfnh1jn1g7dw0" path="res://A.ogg" id="7_3v7ru"]
+[ext_resource type="AudioStream" uid="uid://x6h3y5wm6khm" path="res://G.ogg" id="7_tereu"]
+[ext_resource type="AudioStream" uid="uid://dctaprpfiw2bc" path="res://B.ogg" id="8_tcnuu"]
+[ext_resource type="AudioStream" uid="uid://uptspda4vps7" path="res://hi C.ogg" id="9_tuemg"]
+[ext_resource type="AudioStream" uid="uid://bcf64wpqa48x0" path="res://Csus.ogg" id="12_lggff"]
+[ext_resource type="PlaneMesh" uid="uid://dsh4c5vpfqx6t" path="res://worldstage.tres" id="13_imku0"]
+[ext_resource type="AudioStream" uid="uid://khfxboj46hqf" path="res://Dsus.ogg" id="13_s0gvp"]
+[ext_resource type="AudioStream" uid="uid://bt0jjb5c4t6p4" path="res://Esus.ogg" id="14_vxd74"]
+[ext_resource type="AudioStream" uid="uid://hpooqur20x2m" path="res://Fsus.ogg" id="15_lggff"]
+[ext_resource type="AudioStream" uid="uid://bopnwuqk8xo14" path="res://Gsus.ogg" id="16_s0gvp"]
+[ext_resource type="AudioStream" uid="uid://myekhwh3qt5w" path="res://Asus.ogg" id="17_dhlwf"]
+[ext_resource type="AudioStream" uid="uid://csfpid11g70st" path="res://Bsus.ogg" id="18_5t8nk"]
+[ext_resource type="AudioStream" uid="uid://btn00jj73ahyy" path="res://hiCsus.ogg" id="19_j3e5s"]
+[ext_resource type="Script" uid="uid://csdqkgbw3pode" path="res://trackmovement.gd" id="22_5t8nk"]
+[ext_resource type="Script" uid="uid://tk6hel3o5gf4" path="res://pushmovement.gd" id="23_j3e5s"]
+[ext_resource type="BoxMesh" uid="uid://dq2jnwugqhmdk" path="res://new_box_mesh.tres" id="23_vxd74"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j3e5s"]
+size = Vector3(2, 1, 2.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vxd74"]
+size = Vector3(5, 1, 0.1)
+
+[node name="world" type="Node3D"]
+
+[node name="Boat" type="AnimatableBody3D" parent="."]
+process_mode = 3
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1.5, 14.15)
+sync_to_physics = false
+script = ExtResource("2_cdqbm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0522325e-09, -0.22322702, 0.069223404)
+shape = SubResource("BoxShape3D_j3e5s")
+
+[node name="BoatModel" type="MeshInstance3D" parent="Boat"]
+mesh = ExtResource("2_5t8nk")
+skeleton = NodePath("")
+
+[node name="PianoController" type="Node" parent="."]
+script = ExtResource("2_6iypd")
+
+[node name="SOgg" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("3_tereu")
+
+[node name="DOgg" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("4_cdqbm")
+
+[node name="FOgg" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("5_imku0")
+
+[node name="GOgg" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("6_wlxy5")
+
+[node name="HOgg" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("7_tereu")
+
+[node name="JOgg" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("7_3v7ru")
+
+[node name="KOgg" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("8_tcnuu")
+
+[node name="LOgg" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("9_tuemg")
+
+[node name="Ssus" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("12_lggff")
+
+[node name="Dsus" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("13_s0gvp")
+
+[node name="Fsus" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("14_vxd74")
+
+[node name="Gsus" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("15_lggff")
+
+[node name="Hsus" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("16_s0gvp")
+
+[node name="Jsus" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("17_dhlwf")
+
+[node name="Ksus" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("18_5t8nk")
+
+[node name="Lsus" type="AudioStreamPlayer" parent="PianoController"]
+stream = ExtResource("19_j3e5s")
+
+[node name="easteregg" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5309254, 0, 0.84741855, 0, 1, 0, -0.84741855, 0, 0.5309254, -0.96598315, 2.9533947, 0.8458451)
+visible = false
+mesh = ExtResource("2_a0tk4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 8, 0)
+
+[node name="Worldstage" type="MeshInstance3D" parent="."]
+transform = Transform3D(200, 0, 0, 0, 40, 0, 0, 0, 200, 0, 0, 0)
+mesh = ExtResource("13_imku0")
+
+[node name="Track" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.704617)
+script = ExtResource("22_5t8nk")
+
+[node name="Obstacle" type="Node3D" parent="Track"]
+transform = Transform3D(6.1019645, 0, 0, 0, 3.096086, 0, 0, 0, 1, 0, 0, 10.112525)
+script = ExtResource("23_j3e5s")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Track/Obstacle"]
+visible = false
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Track/Obstacle/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.6736524, 0.45520115)
+shape = SubResource("BoxShape3D_vxd74")
+
+[node name="Area3D" type="Area3D" parent="Track/Obstacle"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Track/Obstacle/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.6702258, 0)
+mesh = ExtResource("23_vxd74")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Track/Obstacle/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.6736524, 0.45520115)
+shape = SubResource("BoxShape3D_vxd74")
+metadata/_edit_group_ = true
+
+[node name="Obstacle2" type="Node3D" parent="Track"]
+transform = Transform3D(6.1019645, 0, 0, 0, 3.096086, 0, 0, 0, 1, 0, 6.987939, 10.112525)
+script = ExtResource("23_j3e5s")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Track/Obstacle2"]
+sync_to_physics = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Track/Obstacle2/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67022574, 0)
+mesh = ExtResource("23_vxd74")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Track/Obstacle2/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.6736524, 0.45520115)
+shape = SubResource("BoxShape3D_vxd74")
+metadata/_edit_group_ = true
+
+[node name="Area3D" type="Area3D" parent="Track/Obstacle2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Track/Obstacle2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.6736524, 0.45520115)
+shape = SubResource("BoxShape3D_vxd74")
+metadata/_edit_group_ = true
+
+[node name="Obstacle3" type="Node3D" parent="Track"]
+transform = Transform3D(6.1019645, 0, 0, 0, 3.096086, 0, 0, 0, 1, 0, 13.992076, 10.112525)
+script = ExtResource("23_j3e5s")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Track/Obstacle3"]
+sync_to_physics = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Track/Obstacle3/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67022574, 0)
+mesh = ExtResource("23_vxd74")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Track/Obstacle3/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.6736524, 0.45520115)
+shape = SubResource("BoxShape3D_vxd74")
+metadata/_edit_group_ = true
+
+[node name="Area3D" type="Area3D" parent="Track/Obstacle3"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Track/Obstacle3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.6736524, 0.45520115)
+shape = SubResource("BoxShape3D_vxd74")
+metadata/_edit_group_ = true
+
+[node name="Obstacle4" type="Node3D" parent="Track"]
+transform = Transform3D(6.1019645, 0, 0, 0, 3.096086, 0, 0, 0, 1, 0, 10.809852, 0.5504141)
+script = ExtResource("23_j3e5s")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Track/Obstacle4"]
+sync_to_physics = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Track/Obstacle4/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67022574, 0)
+mesh = ExtResource("23_vxd74")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Track/Obstacle4/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.6736524, 0.45520115)
+shape = SubResource("BoxShape3D_vxd74")
+metadata/_edit_group_ = true
+
+[node name="Area3D" type="Area3D" parent="Track/Obstacle4"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Track/Obstacle4/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.6736524, 0.45520115)
+shape = SubResource("BoxShape3D_vxd74")
+metadata/_edit_group_ = true
+
+[node name="Obstacle5" type="Node3D" parent="Track"]
+transform = Transform3D(6.1019645, 0, 0, 0, 3.096086, 0, 0, 0, 1, 0, 3.5904589, 0.5504141)
+script = ExtResource("23_j3e5s")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Track/Obstacle5"]
+sync_to_physics = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Track/Obstacle5/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67022574, 0)
+mesh = ExtResource("23_vxd74")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Track/Obstacle5/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.6736524, 0.45520115)
+shape = SubResource("BoxShape3D_vxd74")
+metadata/_edit_group_ = true
+
+[node name="Area3D" type="Area3D" parent="Track/Obstacle5"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Track/Obstacle5/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.6736524, 0.45520115)
+shape = SubResource("BoxShape3D_vxd74")
+metadata/_edit_group_ = true
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.039065838, 65.056465, -2.3629189)
+visible = false
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.9230957, 25.891933, -22.80525)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.039065838, 9.215961, 16.803688)
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10.188375, 1.8140259, 10.980265)
+visible = false
+
+[node name="DirectionalLight3D4" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.039065838, 57.46344, -2.3629189)
+visible = false
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.039065838, 1.6229355, 16.803688)
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.15912628, 10.536854, 12.496635)
+
+[node name="DirectionalLight3D5" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.241743, 64.22245, -6.9744225)
+visible = false
+
+[node name="DirectionalLight3D6" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 13.469185, 8.573034, 6.368761)
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.813683, 2.7395456, 14.216789)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.4060507, -0.90951633, 0.08889804, -0.59032816, 0.33531424, 0.73421866, -0.6975926, 0.24565098, -0.6730677, -0.26793522, 2.847948, 9.726992)
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.40605083, -0.90951645, 0.08889807, 0.2004571, -0.18355596, -0.9623535, 0.891594, -0.3729441, 0.25685203, -0.26793522, 2.847948, 13.824521)
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.40605077, -0.9095163, 0.0888981, 0.20045707, -0.18355598, -0.9623535, 0.8915939, -0.37294418, 0.25685203, -0.26793522, 7.871107, 13.824521)
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.4060508, -0.90951633, 0.08889809, 0.20045708, -0.18355598, -0.9623535, 0.89159393, -0.37294418, 0.25685203, -0.26793522, 19.377117, 10.951453)
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.4060508, -0.90951633, 0.08889809, 0.20045708, -0.18355598, -0.9623535, 0.89159393, -0.37294418, 0.25685203, -0.26793522, 28.594738, 10.951453)
+spot_range = 23.433
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.4060507, -0.90951633, 0.08889804, -0.59032816, 0.33531424, 0.73421866, -0.6975926, 0.24565098, -0.6730677, -0.26793522, 9.649652, 9.726992)
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(0.39269263, -0.6754102, 0.6241903, -0.59032816, 0.33531424, 0.73421866, -0.70519865, -0.6567993, -0.2670383, 6.170748, 6.2213526, 9.726992)
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.4060507, -0.90951633, 0.08889804, -0.59032816, 0.33531424, 0.73421866, -0.6975926, 0.24565098, -0.6730677, -0.26793522, 21.041656, 9.726992)
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.4060507, -0.90951633, 0.08889804, -0.59032816, 0.33531424, 0.73421866, -0.6975926, 0.24565098, -0.6730677, -0.26793522, 27.186806, 12.012848)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.021509763, -0.78748405, 0.61595964, -0.027482765, 0.6163351, 0.78700435, -0.99939084, 1.863483e-09, -0.034899462, 5.951315, 15.391051, 11.69866)
+
+[node name="DirectionalLight3D7" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 52.526573, 0)
+
+[connection signal="note_pressed" from="PianoController" to="Boat" method="_on_piano_controller_note_pressed"]
+[connection signal="note_released" from="PianoController" to="Boat" method="_on_piano_controller_note_released"]
+[connection signal="body_entered" from="Track/Obstacle/Area3D" to="Track/Obstacle" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Track/Obstacle/Area3D" to="Track/Obstacle" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Track/Obstacle2/Area3D" to="Track/Obstacle2" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Track/Obstacle2/Area3D" to="Track/Obstacle2" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Track/Obstacle3/Area3D" to="Track/Obstacle3" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Track/Obstacle3/Area3D" to="Track/Obstacle3" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Track/Obstacle4/Area3D" to="Track/Obstacle4" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Track/Obstacle4/Area3D" to="Track/Obstacle4" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Track/Obstacle5/Area3D" to="Track/Obstacle5" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Track/Obstacle5/Area3D" to="Track/Obstacle5" method="_on_area_3d_body_exited"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bmj1xwoxkwf5u"
+path="res://.godot/imported/hi C_sustain.ogg-06ce0269fce876059e05161d4e85a9de.oggvorbisstr"
+
+[deps]
+
+source_file="res://hi C_sustain.ogg"
+dest_files=["res://.godot/imported/hi C_sustain.ogg-06ce0269fce876059e05161d4e85a9de.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
